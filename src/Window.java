@@ -14,6 +14,7 @@ public class Window extends JFrame {
         this.frame.setSize(WIDTH, HEIGHT);
         this.frame.setResizable(false);
         this.frame.getContentPane().setBackground(new Color(169, 169, 169)); // gray
+        this.frame.setLocationRelativeTo(null);
 
 
         this.frame.setVisible(true);
