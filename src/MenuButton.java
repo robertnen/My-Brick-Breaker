@@ -11,6 +11,16 @@ public class MenuButton extends JButton {
     MenuButton(String text) {
         super(text);
         this.setFont(new Font("Arial", Font.PLAIN, 18));
+
+        this.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                System.out.println("On the button");
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                System.out.println("Out of the button");
+            }
+        });
     }
 
     @Override

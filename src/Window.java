@@ -1,4 +1,7 @@
 import java.awt.Color;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,9 +14,9 @@ public class Window extends JFrame {
     private final JPanel playPanel = new JPanel();
     private final JPanel infoPanel = new JPanel();
     private final JPanel exitPanel = new JPanel();
-    private final TitlePanel titlePanel = new TitlePanel("/img/myLogo.png");
     private JFrame frame = new JFrame("My Brick Breaker");
     private ImageIcon icon = new ImageIcon("img/myLogo.png");
+    private final TitlePanel titlePanel = new TitlePanel("/img/myLogo.png");
     private final MenuButton playButton = new MenuButton("      Play game    ");
     private final MenuButton infoButton = new MenuButton("Info about the game");
     private final MenuButton exitButton = new MenuButton("    Exit the game  ");
@@ -40,7 +43,7 @@ public class Window extends JFrame {
         this.frame.setResizable(false);
         this.frame.setIconImage(icon.getImage());
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.frame.getContentPane().setBackground(new Color(169, 169, 169)); // gray
+        this.frame.getContentPane().setBackground(new Color(96, 157, 243)); // gray
 
         createMenu();
 
@@ -56,13 +59,13 @@ public class Window extends JFrame {
         this.infoButton.addActionListener(e -> this.infoButtonPressed());
         this.exitButton.addActionListener(e -> this.exitButtonPressed());
 
-        this.playPanel.setBounds(150, 280, MIN_WIDTH, MIN_HEIGHT);
-        this.infoPanel.setBounds(150, 380, MIN_WIDTH, MIN_HEIGHT);
-        this.exitPanel.setBounds(150, 480, MIN_WIDTH, MIN_HEIGHT);
+        this.playPanel.setBounds(150, 360, MIN_WIDTH, MIN_HEIGHT);
+        this.infoPanel.setBounds(150, 460, MIN_WIDTH, MIN_HEIGHT);
+        this.exitPanel.setBounds(150, 560, MIN_WIDTH, MIN_HEIGHT);
 
-        this.playPanel.setBackground(new Color(169, 169, 169));
-        this.infoPanel.setBackground(new Color(169, 169, 169));
-        this.exitPanel.setBackground(new Color(169, 169, 169));
+        this.playPanel.setBackground(new Color(96, 157, 243));
+        this.infoPanel.setBackground(new Color(96, 157, 243));
+        this.exitPanel.setBackground(new Color(96, 157, 243));
 
         this.playButton.setSize(MIN_WIDTH, MIN_HEIGHT);
         this.infoButton.setSize(MIN_WIDTH, MIN_HEIGHT);
