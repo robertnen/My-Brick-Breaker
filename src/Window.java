@@ -1,14 +1,16 @@
 import java.awt.Color;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import java.awt.Font;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 public class Window extends JFrame {
+    private JFrame infoFrame;
+    private boolean isUsed = false;
     private final int MIN_WIDTH = 200;
     private final int MIN_HEIGHT = 50;
+    private Audio player = new Audio();
     private final int FRAME_WIDTH = 500;
     private final int FRAME_HEIGHT = 800;
     private final JPanel playPanel = new JPanel();
@@ -23,14 +25,47 @@ public class Window extends JFrame {
 
     private void playButtonPressed() {
         System.out.println("Play button pressed");
+        try {
+            this.player.stop(); // I want to stop the main menu song "Beyond the sky"
+        } catch(Exception e) {
+            System.out.println("Song couldn't be stopped!\n" + e);
+        }
+
+        if(this.isUsed) this.infoFrame.dispose(); // check if I can dispose of the frame
     }
 
     private void infoButtonPressed() {
         System.out.println("Info button pressed");
+
+        if(this.isUsed) this.infoFrame.dispose();
+        else this.isUsed = true;
+
+        this.infoFrame = new JFrame("Info about the game");
+
+        this.infoFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        this.infoFrame.setLayout(null);
+        this.infoFrame.setLocationRelativeTo(null);
+        this.infoFrame.setResizable(false);
+        this.infoFrame.setIconImage(icon.getImage());
+
+        this.infoFrame.getContentPane().setBackground(new Color(96, 157, 243)); // gray
+
+        JLabel infoLabel = new JLabel("Welcome to 'My Brick Breaker' game!\n This game was made by Lucky8boy");
+        infoLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+        infoLabel.setBounds(50, 50, FRAME_WIDTH, FRAME_HEIGHT);
+        this.infoFrame.add(infoLabel);
+
+        this.infoFrame.setVisible(true);
     }
 
     private void exitButtonPressed() {
         System.out.println("Exit button pressed");
+        try {
+            this.player.stop(); // I want to stop the main menu song "Beyond the sky"
+        } catch(Exception e) {
+            System.out.println("Song couldn't be stopped!\n" + e);
+        }
+        this.frame.removeAll();
         this.frame.dispose(); // close the game
     }
 
@@ -44,6 +79,9 @@ public class Window extends JFrame {
         this.frame.setIconImage(icon.getImage());
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.getContentPane().setBackground(new Color(96, 157, 243)); // gray
+
+        this.player.setFile("songs/beyond_the_sky.wav"); // the menu song
+        this.player.play();
 
         createMenu();
 
