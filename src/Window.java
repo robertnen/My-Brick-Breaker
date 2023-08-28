@@ -3,7 +3,6 @@ import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 public class Window extends JFrame {
     private JFrame infoFrame;
@@ -40,20 +39,12 @@ public class Window extends JFrame {
         if(this.isUsed) this.infoFrame.dispose();
         else this.isUsed = true;
 
-        this.infoFrame = new JFrame("Info about the game");
+        this.infoFrame = new InfoPanel("Info about the game", FRAME_WIDTH, FRAME_HEIGHT, icon);
 
-        this.infoFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        this.infoFrame.setLayout(null);
-        this.infoFrame.setLocationRelativeTo(null);
-        this.infoFrame.setResizable(false);
-        this.infoFrame.setIconImage(icon.getImage());
-
-        this.infoFrame.getContentPane().setBackground(new Color(96, 157, 243)); // gray
-
-        JLabel infoLabel = new JLabel("Welcome to 'My Brick Breaker' game!\n This game was made by Lucky8boy");
-        infoLabel.setFont(new Font("Arial", Font.PLAIN, 18));
-        infoLabel.setBounds(50, 50, FRAME_WIDTH, FRAME_HEIGHT);
-        this.infoFrame.add(infoLabel);
+        // JLabel infoLabel = new JLabel("Welcome to 'My Brick Breaker' game!\n This game was made by Lucky8boy");
+        // infoLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+        // infoLabel.setBounds(50, 50, FRAME_WIDTH, FRAME_HEIGHT);
+        // this.infoFrame.add(infoLabel);
 
         this.infoFrame.setVisible(true);
     }
@@ -78,7 +69,7 @@ public class Window extends JFrame {
         this.frame.setResizable(false);
         this.frame.setIconImage(icon.getImage());
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.frame.getContentPane().setBackground(new Color(96, 157, 243)); // gray
+        this.frame.getContentPane().setBackground(new Color(96, 157, 243)); // light blue
 
         this.player.setFile("songs/beyond_the_sky.wav"); // the menu song
         this.player.play();
