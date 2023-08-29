@@ -40,7 +40,6 @@ public class InfoPanel extends JFrame {
         this.infoText.setEditable(true);
         this.backgroundPanel.add(this.infoText);
 
-
         this.add(this.backgroundPanel);
     }
 

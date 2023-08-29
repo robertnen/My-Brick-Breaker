@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -22,7 +21,7 @@ public class Window extends JFrame {
     private final MenuButton infoButton = new MenuButton("Info about the game");
     private final MenuButton exitButton = new MenuButton("    Exit the game  ");
 
-    private void playButtonPressed() {
+    private void playButtonPressed() { // TODO: in progress
         System.out.println("Play button pressed");
         try {
             this.player.stop(); // I want to stop the main menu song "Beyond the sky"
@@ -33,23 +32,17 @@ public class Window extends JFrame {
         if(this.isUsed) this.infoFrame.dispose(); // check if I can dispose of the frame
     }
 
-    private void infoButtonPressed() {
+    private void infoButtonPressed() { // done
         System.out.println("Info button pressed");
 
         if(this.isUsed) this.infoFrame.dispose();
         else this.isUsed = true;
 
         this.infoFrame = new InfoPanel("Info about the game", FRAME_WIDTH, FRAME_HEIGHT, icon);
-
-        // JLabel infoLabel = new JLabel("Welcome to 'My Brick Breaker' game!\n This game was made by Lucky8boy");
-        // infoLabel.setFont(new Font("Arial", Font.PLAIN, 18));
-        // infoLabel.setBounds(50, 50, FRAME_WIDTH, FRAME_HEIGHT);
-        // this.infoFrame.add(infoLabel);
-
         this.infoFrame.setVisible(true);
     }
 
-    private void exitButtonPressed() {
+    private void exitButtonPressed() { //done
         System.out.println("Exit button pressed");
         try {
             this.player.stop(); // I want to stop the main menu song "Beyond the sky"
