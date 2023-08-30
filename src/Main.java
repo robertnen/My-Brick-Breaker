@@ -11,6 +11,6 @@ public class Main {
         JFrame frame = window.getFrame();
         frame.getContentPane().removeAll();
         frame.repaint();
-
+        new LevelsSelector(frame);
     }
 }
