@@ -14,16 +14,16 @@ public class Window extends JFrame {
     private Audio player = new Audio();                                                 // audio player made to run the songs
     private final int FRAME_WIDTH = 500;                                                // width of the frame containing the game
     private final int FRAME_HEIGHT = 800;                                               // height of the frame containing the game
-    private final JPanel playPanel = new JPanel();                                      // the panel containing the play button
-    private final JPanel infoPanel = new JPanel();                                      // the panel containing the info button
-    private final JPanel exitPanel = new JPanel();                                      // the panel containing the exit button
-    private final JPanel songinfoP = new JPanel();                                      // the panel containing the info about the song
+    private JPanel playPanel = new JPanel();                                            // the panel containing the play button
+    private JPanel infoPanel = new JPanel();                                            // the panel containing the info button
+    private JPanel exitPanel = new JPanel();                                            // the panel containing the exit button
+    private JPanel songinfoP = new JPanel();                                            // the panel containing the info about the song
     private JFrame frame = new JFrame("My Brick Breaker");                        // the frame used for the game (still used later)
     private ImageIcon icon = new ImageIcon("img/myLogo.png");                  // the icon used for the game
-    private final TitlePanel titlePanel = new TitlePanel("/img/myLogo.png");   // titlepanel used to use a "rounded" rectangle as a mask for the image
-    private final MenuButton playButton = new MenuButton("      Play game    ");   // play button text
-    private final MenuButton infoButton = new MenuButton("Info about the game");   // info button text
-    private final MenuButton exitButton = new MenuButton("    Exit the game  ");   // exit button text
+    private TitlePanel titlePanel = new TitlePanel("/img/myLogo.png");         // titlepanel used to use a "rounded" rectangle as a mask for the image
+    private MenuButton playButton = new MenuButton("      Play game    ");         // play button text
+    private MenuButton infoButton = new MenuButton("Info about the game");         // info button text
+    private MenuButton exitButton = new MenuButton("    Exit the game  ");         // exit button text
     private JTextArea aboutSong = new JTextArea("\"Beyond the sky\" - Lucky8boy"); // info about the song
 
     private void playButtonPressed() { // done
@@ -36,6 +36,19 @@ public class Window extends JFrame {
 
         if(this.isUsed) this.infoFrame.dispose(); // check if I can dispose of the frame
         this.isReady = true; // go forward
+
+        // for the garbage collector
+        this.aboutSong = null;
+        this.icon = null;
+        this.player = null;
+        this.playPanel = null;
+        this.infoPanel = null;
+        this.exitPanel = null;
+        this.songinfoP = null;
+        this.titlePanel = null;
+        this.exitButton = null;
+        this.infoButton = null;
+        this.playButton = null;
     }
 
     private void addSongInfo() { // done
