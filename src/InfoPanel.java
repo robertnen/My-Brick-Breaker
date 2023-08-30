@@ -37,7 +37,7 @@ public class InfoPanel extends JFrame {
 
         this.infoText.setLineWrap(true);
         this.infoText.setWrapStyleWord(true);
-        this.infoText.setEditable(true);
+        this.infoText.setEditable(false);
         this.backgroundPanel.add(this.infoText);
 
         this.add(this.backgroundPanel);
