@@ -38,6 +38,7 @@ public class LevelsSelector {
             isPlaying = true;
             try {this.player.stop();} catch(Exception e) {e.printStackTrace();};
             // TODO: play level 1
+            new GameFrame(1);
         }
 
         private void playLevel_2() {
