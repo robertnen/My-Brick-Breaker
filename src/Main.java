@@ -6,7 +6,6 @@ public class Main {
         System.setProperty("flatlaf.menuBarEmbedded", "false");
         Window window = new Window();
 
-
         while(!window.getStatus()) System.out.print(""); // wait for the game to start
         JFrame frame = window.getFrame();
         frame.getContentPane().removeAll();
