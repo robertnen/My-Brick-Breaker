@@ -31,7 +31,7 @@ public class Window extends JFrame {
         try {
             this.player.stop(); // I want to stop the main menu song "Beyond the sky"
         } catch(Exception e) {
-            System.out.println("Song couldn't be stopped!\n" + e);
+            e.printStackTrace();
         }
 
         if(this.isUsed) this.infoFrame.dispose(); // check if I can dispose of the frame
@@ -86,7 +86,7 @@ public class Window extends JFrame {
         try {
             this.player.stop(); // I want to stop the main menu song "Beyond the sky"
         } catch(Exception e) {
-            System.out.println("Song couldn't be stopped!\n" + e);
+            e.printStackTrace();
         }
         this.frame.removeAll();
         this.frame.dispose(); // close the game
