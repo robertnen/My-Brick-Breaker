@@ -20,8 +20,6 @@ public class LevelsSelector {
         private JPanel pLevel_3 = new JPanel();
         private JPanel pLevel_4 = new JPanel();
         private JPanel pLevel_5 = new JPanel();
-        private boolean[] isUnlocked =  {true, false, false, false, false}; // level 1 is always ready to start
-        private boolean isPlaying = false; // check if the user is playing
         private Audio player = new Audio();
 
         private final int LENGTH = 40;
@@ -33,52 +31,9 @@ public class LevelsSelector {
             System.out.println("Default Y is " + this.defaultY);
         }
 
-        private void playLevel_1() {
-            if(isPlaying) return;
-            isPlaying = true;
+        private void playLevel(int level) {
             try {this.player.stop();} catch(Exception e) {e.printStackTrace();};
-            // TODO: play level 1
-            new GameFrame(1);
-        }
-
-        private void playLevel_2() {
-            if(isPlaying) return;
-            isPlaying = true;
-            try {this.player.stop();} catch(Exception e) {System.out.println(e);};
-            // TODO: play level 2
-        }
-
-        private void playLevel_3() {
-            if(isPlaying) return;
-            isPlaying = true;
-            try {this.player.stop();} catch(Exception e) {e.printStackTrace();};
-            // TODO: play level 3
-        }
-
-        private void playLevel_4() {
-            if(isPlaying) return;
-            isPlaying = true;
-            try {this.player.stop();} catch(Exception e) {e.printStackTrace();};
-            // TODO: play level 4
-        }
-
-        private void playLevel_5() {
-            if(isPlaying) return;
-            isPlaying = true;
-            try {this.player.stop();} catch(Exception e) {e.printStackTrace();};
-            // TODO: play level 5
-        }
-
-        public void setButtons() {
-            // level_1 is always true
-            this.level_2.setVisible(this.isUnlocked[1]);
-            this.level_3.setVisible(this.isUnlocked[2]);
-            this.level_4.setVisible(this.isUnlocked[3]);
-            this.level_5.setVisible(this.isUnlocked[4]);
-        }
-
-        public void unlockLevel(int level) {
-            this.isUnlocked[level] = true;
+            new GameFrame(level);
         }
 
         LevelsSelector(JFrame frame) {
@@ -125,14 +80,12 @@ public class LevelsSelector {
             this.text_4.setBackground(new Color(96, 157, 243));
             this.text_5.setBackground(new Color(96, 157, 243));
 
-            this.setButtons(); // I want to see the unlocked levels
-
             // adding listeners for the buttons
-            this.level_1.addActionListener(e -> this.playLevel_1());
-            this.level_2.addActionListener(e -> this.playLevel_2());
-            this.level_3.addActionListener(e -> this.playLevel_3());
-            this.level_4.addActionListener(e -> this.playLevel_4());
-            this.level_5.addActionListener(e -> this.playLevel_5());
+            this.level_1.addActionListener(e -> this.playLevel(1));
+            this.level_2.addActionListener(e -> this.playLevel(2));
+            this.level_3.addActionListener(e -> this.playLevel(3));
+            this.level_4.addActionListener(e -> this.playLevel(4));
+            this.level_5.addActionListener(e -> this.playLevel(5));
 
             // adding all the components
             this.pLevel_1.add(level_1);
